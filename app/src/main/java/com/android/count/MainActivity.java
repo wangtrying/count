@@ -10,6 +10,7 @@ import com.android.count.terry.INode;
 import com.android.count.terry.numbers.NumNode;
 import com.android.count.terry.operators.binaryOperators.AddNode;
 import com.android.count.terry.operators.binaryOperators.MultiplyNode;
+import com.android.count.terry.operators.uniaryOperators.AbsoluteValueNode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         // create number nodes first
-        INode node1 = new NumNode(1);
-        INode node2 = new NumNode(2);
+        INode node1 = new NumNode(-1);
+        INode node2 = new NumNode(-2);
         INode node3 = new NumNode(3);
 
         //create * node
@@ -55,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
         //create + node
         INode addNode = new AddNode(node1, multiplyNode);
 
-        resultTextView.setText("I am Terry: "+ String.valueOf(addNode.evaluate()));
+        //create abs node
+        INode absNode = new AbsoluteValueNode(addNode);
+
+        resultTextView.setText("I am Terry: "+ String.valueOf(absNode.evaluate()));
 
 
         // add by Terry
