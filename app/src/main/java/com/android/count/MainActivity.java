@@ -1,10 +1,15 @@
 package com.android.count;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.android.count.terry.INode;
+import com.android.count.terry.numbers.NumNode;
+import com.android.count.terry.operators.binaryOperators.AddNode;
+import com.android.count.terry.operators.binaryOperators.MultiplyNode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +37,28 @@ public class MainActivity extends AppCompatActivity {
         }else{
             resultTextView.setText( String.valueOf(node.evaluate()));
         }
+
+
+
+        // add by Terry
+        //
+
+
+        // create number nodes first
+        INode node1 = new NumNode(1);
+        INode node2 = new NumNode(2);
+        INode node3 = new NumNode(3);
+
+        //create * node
+        INode multiplyNode = new MultiplyNode(node2, node3);
+
+        //create + node
+        INode addNode = new AddNode(node1, multiplyNode);
+
+        resultTextView.setText("I am Terry: "+ String.valueOf(addNode.evaluate()));
+
+
+        // add by Terry
 
 
 
